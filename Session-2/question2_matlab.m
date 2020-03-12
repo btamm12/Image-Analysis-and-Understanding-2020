@@ -159,7 +159,7 @@ end
 %%
 
 % b) Now cluster on the reduced space
-%%%TODO: put the results in "clusters_pca" variable.
+[clusters_pca, centroids_pca] = kmeans(coords', 40);
 
 % Show the the images that were assigned to cluster 1
 img_index = find(clusters_pca == 1);
@@ -170,14 +170,17 @@ for i = 1 : min( length(img_index), 7)
     img = reshape(imagesTrain(:, img_index(i)), height, width);
     imagesc(img), colormap gray, axis off
 end
+%%
 
 % c) Try agglomerative clustering on some images
 %%%TODO: hint: use linkage command for agglomerative clustering with
 %%%"single" metric and put the results in "Z_agglo" variable
+Z_agglo = linkage(coords','single');
 
 figure;
 [H,T] = dendrogram(Z_agglo,'colorthreshold','default');
 c = cluster(Z_agglo,'maxclust',2);
+
 
 
 % Show the the images that were assigned to cluster 1
@@ -186,7 +189,7 @@ for i = 1 : min( length(img_index), 5)
     figure(111);
     subplot(1, 5, i)
 
-    img = reshape(imagesTrain(:, checkImages(img_index(i)) ), height, width);
+    img = reshape(imagesTrain(:, img_index(i)), height, width);
     imagesc(img), colormap gray, axis off
 end
 
