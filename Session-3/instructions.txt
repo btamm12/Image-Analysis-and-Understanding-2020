@@ -1,0 +1,12 @@
+This exercise is not in matlab, but in python. These are the instructions on how to install miniconda on your machine. It's best if you do this in advance
+
+1. Download miniconda from https://docs.conda.io/en/latest/miniconda.html (version 3.*)
+2. Install it (bash *filename* on Linux)
+Installation instructions for Windows
+https://docs.conda.io/projects/conda/en/latest/user-guide/install/windows.html
+3. Activate the environment: conda activate *name*
+Use conda env list if you don't know the name of your environment, if empty, create new: conda create -name *name* python3
+4. conda install opencv
+5. conda install matplotlib
+6. conda install jupyter
+7. conda install -c open3d-admin open3d (optional)
